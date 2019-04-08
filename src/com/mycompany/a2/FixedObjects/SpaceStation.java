@@ -14,6 +14,14 @@ public class SpaceStation extends fixedGameObject {
 		super.setColor(ColorUtil.YELLOW);
 		super.setRandomXY();
 	}
+	public SpaceStation(int x, int y) {
+		super.setId();
+		setRate(); 
+
+		super.setColor(ColorUtil.YELLOW);
+		super.setX(x);
+		super.setY(y);
+	}
 	public void blinkLight() {
 		blinker++;
 		if((blinker % this.getrate())==0) {

@@ -13,7 +13,7 @@ public class Game extends Form {
 	public Game() {
 	
 		gameworld = new GameWorld();
-		gameworld.init();
+		gameworld.init(4,4);
 		play();
 		
 	}

@@ -14,6 +14,15 @@ public class Asteroid extends MovableObject{
 		this.size = randomSize();
 		
 	}
+	public Asteroid(int x, int y) {
+		super.setColor(ColorUtil.CYAN); 
+		super.setRandomHeading();
+		super.setRandomSpeed();
+		super.setX(x);
+		super.setY(y);
+		this.size = randomSize();
+		
+	}
 	public int randomSize() {
 		return rand.nextInt(24+1)+6;
 	}

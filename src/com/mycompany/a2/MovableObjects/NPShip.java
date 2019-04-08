@@ -20,6 +20,19 @@ public class NPShip extends Ship{
 		
 		
 	}
+public NPShip(int x, int y) {
+		
+		NPML = new MissileLauncher(super.getX(), super.getY(), super.getHeading(),super.getspeed());
+		super.setX(x);
+		super.setY(y);
+		super.setRandomSpeed();
+		super.setColor(ColorUtil.MAGENTA);
+		super.setRandomHeading();
+		super.setMissleCount(2);
+		this.NPrandomSize();
+		
+		
+	}
 	public MissileLauncher getNPML() {
 		return NPML; 
 	}
