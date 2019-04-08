@@ -37,7 +37,9 @@ public class GameWorld extends Observable implements IGameWorld {
 		this.width = width;
 		this.lives = lives;
 	}
-
+	public void sound() {
+		this.sound = !this.getSound();
+	}
 	public boolean decrementPSLife() {
 		boolean exit = false;
 		int life;
