@@ -5,19 +5,51 @@ import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
+import com.mycompany.a2.Commands.*;
+import com.codename1.ui.*;
+
 
 public class Game extends Form {
 
 	private GameWorld gameworld;
+	private MapView mapView;
+	private PointsView pointsView; 
+	
+	private AddAsteroidC addAsteroidCommand;
+	private AddNonPlayerShipC addNPSCommand;
+	private AddPlayerShipC addPSCommand; 
+	private AddSpaceStationC addSpaceStationCommand; 
+	private AsteroidCrashAsteroid asCrashasCommand;
+	private AsteroidCrashNPS asCrashNPSCommand;
+	private DecreasePSSpeedC decreasePSSpeedCommand; 
+	private IncreasePSSpeedC increasePSSpeedCommand;
+	private JumpC jumpCommand;
+	private LoadMissilesToPSC loadMissileToPSCommand; 
+	private NonPlayerShipFireC npsFireMissileCommand; 
+	private NPSMissilePS npsMissilePSCommand; 
+	private PlayerShipFireC PSFireMissileCommand ; 
+	private PrintMapC printMapCommand; 
+	private PSCrashAsteroid PSCrashAsteroidCommand; 
+	private PScrashNPS PSCrashNPSCommand; 
+	private PSMissileAsteroidC PSMissileAsteroidCommand; 
+	private PSMissileNPSC PSMissileNPSCommand; 
+	private quitGameC quitGameCommand; 
+	private tickC tickCommand; 
+	private TurnLeftLauncherC turnLeftLauncherCommand; 
+	private TurnRightLauncherC turnRightLauncherCommand; 
+	private TurnPSLeftC turnPSLeftCommand; 
+	private TurnPSRIghtC turnPSRightCommand;
 	
 	public Game() {
 	
 		gameworld = new GameWorld();
 		gameworld.init(4,4);
-		play();
+		
 		
 	}
 	
+	
+	/*
 	public void play() { 
 	// code to accept commands and execute
 	Label myLabel = new Label("Enter a Command: ");
@@ -115,4 +147,5 @@ public class Game extends Form {
 	);// add action listener
 		
 	}// end of play 
+	*/
 }

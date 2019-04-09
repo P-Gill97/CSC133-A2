@@ -5,13 +5,26 @@ import java.util.Observer;
 
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Container;
+import com.codename1.ui.Label;
+import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.plaf.Border;
 import com.mycompany.a2.Interfaces.IGameWorld;
 
 public class MapView extends Container implements Observer {
 	
 	public MapView() {
-		this.getStyle().setBorder(Border.createLineBorder(5, ColorUtil.BLACK));
+		Container mc = new Container();
+		
+		mc.setLayout(new FlowLayout());
+		mc.getAllStyles().setBgColor(ColorUtil.WHITE);
+		mc.getAllStyles().setBgTransparency(0);
+		Label text = new Label("Map View");
+		mc.add(text); 
+		this.add(mc);
+	
+	
+	
+	
 	}
 	
 	
@@ -23,7 +36,12 @@ public class MapView extends Container implements Observer {
 	@Override
 	public void update(Observable observable, Object data) {
 		// TODO Auto-generated method stub
-		((IGameWorld)observable).printMap();
+		IGameWorld world = (IGameWorld) data; 
+		world.setHeight(this.getHeight());
+		world.setWidth(this.getWidth());
+		world.printMap();
+		this.repaint();
+		
 	}
 
 }
