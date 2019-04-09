@@ -17,6 +17,16 @@ public class PShip extends Ship implements ISteerable {
 		psMissleLauncher = new SteerableLauncher(super.getX(), super.getY(), super.getHeading(), super.getspeed());
 		
 	}
+	public PShip(int x, int y) {
+		super.setX(x);
+		super.setY(y);
+		// TODO Auto-generated constructor stub
+		super.setspeed(0);
+		super.setHeading(0);
+		super.setMissleCount(10);
+		psMissleLauncher = new SteerableLauncher(super.getX(), super.getY(), super.getHeading(), super.getspeed());
+		
+	}
 	public void PSincreaseSpeed() {
 		super.increaseSpeed();
 		psMissleLauncher.increaseSpeed(); 
@@ -74,9 +84,9 @@ public class PShip extends Ship implements ISteerable {
 	
 	public String toString() {
 		String s = "";
-		s += "/n Player Ship "; 
+		s += " Player Ship "; 
 		s += super.toString();
-		s += "ShipLife= "+ this.getLife();
+		s += " Lives = "+ this.getLife();
 		return s;
 	}
 }

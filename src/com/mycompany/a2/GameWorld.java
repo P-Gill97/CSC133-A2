@@ -32,10 +32,11 @@ public class GameWorld extends Observable implements IGameWorld {
 	public void init(int width, int height) {
 		this.score = 0;
 		this.ticks = 0;
-		this.GameObjCollection = new GameObjectCollection();
+		
 		this.height = height;
 		this.width = width;
-		this.lives = lives;
+		this.lives = 3;
+		this.GameObjCollection = new GameObjectCollection();
 	}
 	public void sound() {
 		this.sound = !this.getSound();
@@ -292,11 +293,14 @@ public class GameWorld extends Observable implements IGameWorld {
 	}
 
 	public void addPlayerShip() {
-
-		SpaceStation spaceStation = new SpaceStation(this.width, this.height);
-		GameObjCollection.add(spaceStation);
+		if(PlayerShipExists() ) {
+			System.out.println("Player Ship already Exists. ");
+		}else {
+		PShip ps = new PShip(this.width, this.height);
+		GameObjCollection.add(ps);
 		System.out.println("PS created: ");
-		System.out.println(spaceStation);
+		System.out.println(ps);
+		}
 		this.setChanged();
 		this.notifyObservers(new GameWorldProxy(this));
 	}
@@ -338,10 +342,10 @@ public class GameWorld extends Observable implements IGameWorld {
 			}
 		} else {
 			System.out.println("Player ship does not exist");
-			this.setChanged();
-			this.notifyObservers(new GameWorldProxy(this));
+			
 		}
-
+		this.setChanged();
+		this.notifyObservers(new GameWorldProxy(this));
 		/*
 		 * if (PlayerShipExists()) { for (GameObject obj : objectCollection) { if (obj
 		 * instanceof PShip) { int speed = ((PShip) obj).getspeed(); if (speed > 15) {
@@ -373,9 +377,10 @@ public class GameWorld extends Observable implements IGameWorld {
 			}
 		} else {
 			System.out.println("Player ship does not exist");
-			this.setChanged();
-			this.notifyObservers(new GameWorldProxy(this));
+			
 		}
+		this.setChanged();
+		this.notifyObservers(new GameWorldProxy(this));
 
 	}
 
@@ -412,9 +417,10 @@ public class GameWorld extends Observable implements IGameWorld {
 			}
 		} else {
 			System.out.println("turn right did not execute. Did you add ship?");
-			this.setChanged();
-			this.notifyObservers(new GameWorldProxy(this));
+			
 		}
+		this.setChanged();
+		this.notifyObservers(new GameWorldProxy(this));
 	}
 
 	public void turnMissleLauncherRight() {
@@ -432,9 +438,10 @@ public class GameWorld extends Observable implements IGameWorld {
 			}
 		} else {
 			System.out.println("Turn PSLauncher right did not execute. Did you add ship?");
-			this.setChanged();
-			this.notifyObservers(new GameWorldProxy(this));
+			
 		}
+		this.setChanged();
+		this.notifyObservers(new GameWorldProxy(this));
 	}
 	public void turnMissleLauncherLeft() {
 		IItterator it = GameObjCollection.getIterator();
@@ -478,9 +485,9 @@ public class GameWorld extends Observable implements IGameWorld {
 			}
 		} else {
 			System.out.println("Missile unable to fire. Did you add ship?");
-			this.setChanged();
-			this.notifyObservers(new GameWorldProxy(this));
 		}
+		this.setChanged();
+		this.notifyObservers(new GameWorldProxy(this));
 		/*
 		 * if (PlayerShipExists()) { int i = PSLocationInVector(); int missileCount;
 		 * PShip ship = (PShip) objectCollection.get(i);
@@ -523,9 +530,9 @@ public class GameWorld extends Observable implements IGameWorld {
 			}
 		} else {
 			System.out.println("Missile unable to fire. Did you add NPS ship?");
-			this.setChanged();
-			this.notifyObservers(new GameWorldProxy(this));
 		}
+		this.setChanged();
+		this.notifyObservers(new GameWorldProxy(this));
 	}
 
 	public void jumpHyperspace() {
@@ -548,9 +555,9 @@ public class GameWorld extends Observable implements IGameWorld {
 			}
 		} else {
 			System.out.println("Jump not possible. Did you add ship?");
-			this.setChanged();
-			this.notifyObservers(new GameWorldProxy(this));
 		}
+		this.setChanged();
+		this.notifyObservers(new GameWorldProxy(this));
 	}
 
 	public void loadNewMisslesPS() {
@@ -566,9 +573,9 @@ public class GameWorld extends Observable implements IGameWorld {
 			}
 		} else {
 			System.out.println("Missiles not able to reload. Does ps exist?");
-			this.setChanged();
-			this.notifyObservers(new GameWorldProxy(this));
 		}
+		this.setChanged();
+		this.notifyObservers(new GameWorldProxy(this));
 	}
 
 	public void missleStrikePStoAs() {
@@ -601,9 +608,9 @@ public class GameWorld extends Observable implements IGameWorld {
 			deletePS();
 			deleteMissile();
 			System.out.println("NPS missile strikes PS. Ps deleted.");
-			this.setChanged();
-			this.notifyObservers(new GameWorldProxy(this));
 		}
+		this.setChanged();
+		this.notifyObservers(new GameWorldProxy(this));
 	}
 
 	public void crashPStoAs() {
@@ -612,6 +619,8 @@ public class GameWorld extends Observable implements IGameWorld {
 			decrementPSLife();
 			deleteAsteroid();
 			System.out.println("crash PS to AS . removed ps and asteroid ");
+		}else {
+			System.out.println("PS or AS does not exist");
 		}
 		this.setChanged();
 		this.notifyObservers(new GameWorldProxy(this));
@@ -623,6 +632,8 @@ public class GameWorld extends Observable implements IGameWorld {
 			decrementPSLife();
 			deletePS();
 			System.out.println("removed ps and asteroid ");
+		}else {
+			System.out.println("PS or NPS does not exist");
 		}
 		this.setChanged();
 		this.notifyObservers(new GameWorldProxy(this));
@@ -656,6 +667,8 @@ public class GameWorld extends Observable implements IGameWorld {
 			deleteAsteroid();
 			System.out.println(" AS and NPS collsion. removed nps and asteroid ");
 
+		}else {
+			System.out.println("AS or NPS does not exist so crash cannot happen.");
 		}
 		this.setChanged();
 		this.notifyObservers(new GameWorldProxy(this));
@@ -674,19 +687,17 @@ public class GameWorld extends Observable implements IGameWorld {
 	public void moveObjects() {
 		boolean moving = false;
 		IItterator it = GameObjCollection.getIterator();
-		if (PlayerShipExists()) {
+		
 			while (it.hasNext()) {
 				GameObject obj = (GameObject) it.getNext();
 				if (obj instanceof IMovable) {
 					((IMovable) obj).move();
-
+					moving = true; 
+					System.out.println("moving objects");
 				}
 
 			}
-		} else {
-			System.out.println("Missiles not able to reload. Does ps exist?");
-
-		}
+		 
 		this.setChanged();
 		this.notifyObservers(new GameWorldProxy(this));
 
@@ -719,10 +730,10 @@ public class GameWorld extends Observable implements IGameWorld {
 			}
 
 		} else {
-			System.out.println("Change ");
-			this.setChanged();
-			this.notifyObservers(new GameWorldProxy(this));
+			System.out.println("Change fuel did not execute. No missiles ");
 		}
+		this.setChanged();
+		this.notifyObservers(new GameWorldProxy(this));
 
 	}
 
@@ -739,39 +750,25 @@ public class GameWorld extends Observable implements IGameWorld {
 
 			}
 		} else {
-			System.out.println("Space station unable to blink. ");
+			System.out.println("Space station unable to blink.Did you add it? ");
 
 		}
 		this.setChanged();
 		this.notifyObservers(new GameWorldProxy(this));
 	}
-/*
-	public void printState() {
-		if (PlayerShipExists()) {
-			int i = PSLocationInVector();
-			PShip Ship = (PShip) objectCollection.get(i);
-			int missleCount = Ship.getMissleCount();
 
-			System.out.println(" PLAYER SHIP MISSLE COUNT: " + missleCount);
-		}
-		System.out.println("SCORE : " + score + " Time is at : " + ticks);
-	}
-*/
 	public void printMap() {
 		IItterator it = GameObjCollection.getIterator();
 		System.out.println("###########################<<MAP>>>############################");
-		if (spaceStationExists()) {
+		
 			while (it.hasNext()) {
 				GameObject obj = (GameObject) it.getNext();
-				System.out.println("obj");
+				
+				System.out.println(obj);
 
 			}
-		} else {
-			System.out.println("Unable to execute printmap command. ");
-
-		}
-		this.setChanged();
-		this.notifyObservers(new GameWorldProxy(this));
+		
+		
 	}
 
 	public void quitGame() {

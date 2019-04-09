@@ -66,7 +66,7 @@ public abstract class MovableObject extends GameObject implements IMovable{
 			}
 	}
 	public void decreaseSpeed() {
-		if(this.speed< 15 && this.speed >=0) {
+		if(this.speed<= 15 && this.speed >=0) {
 			this.speed --; 
 		}
 	}

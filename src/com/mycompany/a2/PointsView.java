@@ -21,9 +21,9 @@ public class PointsView extends Container implements Observer{
 		// TODO Auto-generated method stub
 		IGameWorld world = (IGameWorld) observable;
 		int points = world.getScore();
-		pointsL.setText(String.valueOf(points));
+		pointsL.setText(""+points+"");
 		int missileCount = world.getNumberOfMissiles();
-		numberOfMissileL.setText(String.valueOf(missileCount));
+		numberOfMissileL.setText(""+missileCount+"");
 		int time = world.getTime();
 		timeL.setText(String.valueOf(time));
 		boolean soundU = world.getSound();

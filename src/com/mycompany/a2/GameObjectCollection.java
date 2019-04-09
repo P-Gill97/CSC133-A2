@@ -9,7 +9,7 @@ public class GameObjectCollection implements ICollection {
 	private Vector collection;
 	
 	public GameObjectCollection() {
-		this.collection = new Vector(); 
+		collection = new Vector(); 
 	}
 	
 	
@@ -28,8 +28,41 @@ public class GameObjectCollection implements ICollection {
 	@Override
 	public IItterator getIterator() {
 		
-		return new VectorIterator(collection);
+		return new VectorIterator();
 	}
-	
+	private class VectorIterator implements IItterator{
+		private int index; 
+		
+		
+		public VectorIterator( ) {
+			index = -1;
+		}
+		@Override
+		public Object getNext() {
+			// TODO Auto-generated method stub
+			index++;
+			return collection.elementAt(index); 
+
+		}
+
+		@Override
+		public Object checkNext() {
+			// TODO Auto-generated method stub
+			return collection.elementAt(index);
+		}
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			if(index == collection.size() -1) {
+				return false;
+			}
+			if(collection.size() <=0) {
+				return false;
+			}
+			return true;
+		}
+
+	}
 
 }
