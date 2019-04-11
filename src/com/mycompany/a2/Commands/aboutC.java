@@ -15,7 +15,8 @@ public class aboutC extends Command {
 	@Override 
 	public void actionPerformed(ActionEvent evt) {
 		if(evt.getKeyEvent()!= -1) {
-			Dialog.show("About ", aboutStr, "Done", "Exit"); 
+			Dialog.show("About ", aboutStr, "", "Close"); 
+			
 			
 		}
 	}

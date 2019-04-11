@@ -84,14 +84,17 @@ public class Game extends Form {
 		Container buttonContainer = new Container(); 
 		buttonContainer.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
 		buttonContainer.add(new Label("Commands: "));
-		buttonContainer.getAllStyles().setBgColor(ColorUtil.WHITE);
+		buttonContainer.getAllStyles().setBgTransparency(1);
+		buttonContainer.getAllStyles().setBgColor(ColorUtil.BLACK);
+		buttonContainer.getAllStyles().setFgColor(ColorUtil.BLACK);
 		buttonContainer.getAllStyles().setBorder(Border.createLineBorder(5, ColorUtil.CYAN ));
 		buttonContainer.setScrollableY(true);
 		
 		// asteroid
 		addAsteroidCommand = new AddAsteroidC(world); 
 		Button addAsteroidButton = new Button("Add Asteroid");
-		addAsteroidButton.getAllStyles().setBgTransparency(1);
+		addAsteroidButton.getAllStyles().setBgTransparency(80);
+		addAsteroidButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		addAsteroidButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		addAsteroidButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		addAsteroidButton.setCommand(addAsteroidCommand);
@@ -100,7 +103,8 @@ public class Game extends Form {
 		
 		addNPSCommand = new AddNonPlayerShipC(world); 
 		Button addNPSButton = new Button("Add Non Player Ship");
-		addNPSButton.getAllStyles().setBgTransparency(1);
+		addNPSButton.getAllStyles().setBgTransparency(80);
+		addNPSButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		addNPSButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		addNPSButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		addNPSButton.setCommand(addNPSCommand);
@@ -110,7 +114,8 @@ public class Game extends Form {
 		
 		addPSCommand = new AddPlayerShipC(world); 
 		Button addPSButton = new Button("Add Player Ship");
-		addPSButton.getAllStyles().setBgTransparency(1);
+		addPSButton.getAllStyles().setBgTransparency(80);
+		addPSButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		addPSButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		addPSButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		addPSButton.setCommand(addPSCommand);
@@ -120,7 +125,8 @@ public class Game extends Form {
 		
 		addSpaceStationCommand = new AddSpaceStationC(world); 
 		Button addSpaceStationButton = new Button("Add Space Station");
-		addSpaceStationButton.getAllStyles().setBgTransparency(1);
+		addSpaceStationButton.getAllStyles().setBgTransparency(80);
+		addSpaceStationButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		addSpaceStationButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		addSpaceStationButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		addSpaceStationButton.setCommand(addSpaceStationCommand);
@@ -130,49 +136,54 @@ public class Game extends Form {
 		// Decrease PS speed 
 		decreasePSSpeedCommand = new DecreasePSSpeedC(world); 
 		Button decreasePSSpeedButton = new Button("Decrease Player Ship Speed ");
-		decreasePSSpeedButton.getAllStyles().setBgTransparency(1);
+		decreasePSSpeedButton.getAllStyles().setBgTransparency(80);
+		decreasePSSpeedButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		decreasePSSpeedButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		decreasePSSpeedButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		decreasePSSpeedButton.setCommand(decreasePSSpeedCommand);
 		buttonContainer.add(decreasePSSpeedButton);
-		addKeyListener('d', decreasePSSpeedCommand);
+		addKeyListener('D', decreasePSSpeedCommand);
 		// Increase PS speed 
 		increasePSSpeedCommand = new IncreasePSSpeedC(world); 
 		Button increasePSSpeedButton = new Button("Increase Player Ship Speed ");
-		increasePSSpeedButton.getAllStyles().setBgTransparency(1);
+		increasePSSpeedButton.getAllStyles().setBgTransparency(80);
+		increasePSSpeedButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		increasePSSpeedButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		increasePSSpeedButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		increasePSSpeedButton.setCommand(increasePSSpeedCommand);
 		buttonContainer.add(increasePSSpeedButton);
-		addKeyListener('i', increasePSSpeedCommand);
+		addKeyListener('I', increasePSSpeedCommand);
 		
 		// add up arrow addKeyListener(, increasePSSpeedCommand);
 		
 		// turn player ship left
 		turnPSLeftCommand = new TurnPSLeftC(world); 
 		Button turnPSLeftButton = new Button("Turn player ship left ");
-		turnPSLeftButton.getAllStyles().setBgTransparency(1);
+		turnPSLeftButton.getAllStyles().setBgTransparency(80);
+		turnPSLeftButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		turnPSLeftButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		turnPSLeftButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		turnPSLeftButton.setCommand(turnPSLeftCommand);
 		buttonContainer.add(turnPSLeftButton);
-		addKeyListener('l', turnPSLeftCommand);
+		addKeyListener('L', turnPSLeftCommand);
 		// turn player ship right. 
 		
 		turnPSRightCommand = new TurnPSRIghtC(world); 
 		Button turnPSRightButton = new Button("Increase Player Ship Speed ");
-		turnPSRightButton.getAllStyles().setBgTransparency(1);
+		turnPSRightButton.getAllStyles().setBgTransparency(80);
+		turnPSRightButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		turnPSRightButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		turnPSRightButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		turnPSRightButton.setCommand(turnPSRightCommand);
 		buttonContainer.add(turnPSRightButton);
-		addKeyListener('r', turnPSRightCommand);
+		addKeyListener('R', turnPSRightCommand);
 		
 		// turn missile launcher left. 
 		
 		turnLeftLauncherCommand = new TurnLeftLauncherC(world); 
 		Button turnMLSLefttButton = new Button("Turn Left Missile Launcher ");
-		turnMLSLefttButton.getAllStyles().setBgTransparency(1);
+		turnMLSLefttButton.getAllStyles().setBgTransparency(80);
+		turnMLSLefttButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		turnMLSLefttButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		turnMLSLefttButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		turnMLSLefttButton.setCommand(turnLeftLauncherCommand);
@@ -182,7 +193,8 @@ public class Game extends Form {
 		
 		turnRightLauncherCommand = new TurnRightLauncherC(world); 
 		Button turnMLSRightButton = new Button("Turn Right Missile Launcher ");
-		turnMLSRightButton.getAllStyles().setBgTransparency(1);
+		turnMLSRightButton.getAllStyles().setBgTransparency(80);
+		turnMLSRightButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		turnMLSRightButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		turnMLSRightButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		turnMLSRightButton.setCommand(turnRightLauncherCommand);
@@ -192,17 +204,20 @@ public class Game extends Form {
 		
 		PSFireMissileCommand = new PlayerShipFireC(world); 
 		Button PlayerShipFireCommand = new Button("Player Ship firing ");
-		PlayerShipFireCommand.getAllStyles().setBgTransparency(1);
+		PlayerShipFireCommand.getAllStyles().setBgTransparency(80);
+		PlayerShipFireCommand.getAllStyles().setBgColor(ColorUtil.BLACK);
 		PlayerShipFireCommand.getAllStyles().setFgColor(ColorUtil.WHITE);
 		PlayerShipFireCommand.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		PlayerShipFireCommand.setCommand(PSFireMissileCommand);
+		
 		buttonContainer.add(PlayerShipFireCommand);
-		addKeyListener(' ', PSFireMissileCommand);
+		addKeyListener(-90, PSFireMissileCommand);
 		
 		// NPS fire 
 		npsFireMissileCommand = new NonPlayerShipFireC(world); 
 		Button NonPlayerShipFireCommand = new Button("Non Player Ship firing ");
-		NonPlayerShipFireCommand.getAllStyles().setBgTransparency(1);
+		NonPlayerShipFireCommand.getAllStyles().setBgTransparency(80);
+		NonPlayerShipFireCommand.getAllStyles().setBgColor(ColorUtil.BLACK);
 		NonPlayerShipFireCommand.getAllStyles().setFgColor(ColorUtil.WHITE);
 		NonPlayerShipFireCommand.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		NonPlayerShipFireCommand.setCommand(npsFireMissileCommand);
@@ -211,17 +226,20 @@ public class Game extends Form {
 		// Jump
 		jumpCommand = new JumpC(world); 
 		Button jumpCommandButton = new Button("Jump ");
-		jumpCommandButton.getAllStyles().setBgTransparency(1);
+		jumpCommandButton.getAllStyles().setBgTransparency(80);
+		jumpCommandButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		jumpCommandButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		jumpCommandButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		jumpCommandButton.setCommand(jumpCommand);
+		
 		buttonContainer.add(jumpCommandButton);
-		addKeyListener('j', jumpCommand);
+		addKeyListener(' ', jumpCommand);
 		
 		// Load missiles to Player ship
 		loadMissileToPSCommand = new LoadMissilesToPSC(world); 
 		Button loadMissilesPSButton = new Button("Load Missiles to Player Ship ");
-		loadMissilesPSButton.getAllStyles().setBgTransparency(1);
+		loadMissilesPSButton.getAllStyles().setBgTransparency(80);
+		loadMissilesPSButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		loadMissilesPSButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		loadMissilesPSButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		loadMissilesPSButton.setCommand(loadMissileToPSCommand);
@@ -230,7 +248,8 @@ public class Game extends Form {
 		// ps missile hits  asteroid
 		PSMissileAsteroidCommand = new PSMissileAsteroidC(world); 
 		Button psMissileAsteroidButton = new Button("Player Ship missile hits Asteroid ");
-		psMissileAsteroidButton.getAllStyles().setBgTransparency(1);
+		psMissileAsteroidButton.getAllStyles().setBgTransparency(80);
+		psMissileAsteroidButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		psMissileAsteroidButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		psMissileAsteroidButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		psMissileAsteroidButton.setCommand(PSMissileAsteroidCommand);
@@ -239,7 +258,8 @@ public class Game extends Form {
 		// PS missile hits NPS
 		PSMissileNPSCommand = new PSMissileNPSC(world); 
 		Button psMissileNPSButton = new Button("Player Ship missile hits Non Player Ship ");
-		psMissileNPSButton.getAllStyles().setBgTransparency(1);
+		psMissileNPSButton.getAllStyles().setBgTransparency(80);
+		psMissileNPSButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		psMissileNPSButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		psMissileNPSButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		psMissileNPSButton.setCommand(PSMissileNPSCommand);
@@ -248,7 +268,8 @@ public class Game extends Form {
 		// NPS missile hits PS
 		npsMissilePSCommand = new NPSMissilePS(world); 
 		Button npsMissilePSButton = new Button("Player Ship missile hits Non Player Ship ");
-		npsMissilePSButton.getAllStyles().setBgTransparency(1);
+		npsMissilePSButton.getAllStyles().setBgTransparency(80);
+		npsMissilePSButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 		npsMissilePSButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 		npsMissilePSButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 		npsMissilePSButton.setCommand(npsMissilePSCommand);
@@ -258,7 +279,8 @@ public class Game extends Form {
 		
 				asCrashasCommand = new AsteroidCrashAsteroid(world); 
 				Button addAsCrashASButton = new Button("Asteroid hits another Asteroid ");
-				addAsCrashASButton.getAllStyles().setBgTransparency(1);
+				addAsCrashASButton.getAllStyles().setBgTransparency(80);
+				addAsCrashASButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 				addAsCrashASButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 				addAsCrashASButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 				addAsCrashASButton.setCommand(asCrashasCommand);
@@ -267,7 +289,8 @@ public class Game extends Form {
 				
 				asCrashNPSCommand = new AsteroidCrashNPS(world); 
 				Button addAsCrashNPSButton = new Button("Asteroid hits NPS ");
-				addAsCrashNPSButton.getAllStyles().setBgTransparency(1);
+				addAsCrashNPSButton.getAllStyles().setBgTransparency(80);
+				addAsCrashNPSButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 				addAsCrashNPSButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 				addAsCrashNPSButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 				addAsCrashNPSButton.setCommand(asCrashNPSCommand);
@@ -275,7 +298,8 @@ public class Game extends Form {
 		// Asteroid crashes PS 
 				PSCrashAsteroidCommand = new PSCrashAsteroid(world); 
 				Button PSCrashAsteroidButton = new Button("Player ship hits Asteroid ");
-				PSCrashAsteroidButton.getAllStyles().setBgTransparency(1);
+				PSCrashAsteroidButton.getAllStyles().setBgTransparency(80);
+				PSCrashAsteroidButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 				PSCrashAsteroidButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 				PSCrashAsteroidButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 				PSCrashAsteroidButton.setCommand(PSCrashAsteroidCommand);
@@ -285,7 +309,8 @@ public class Game extends Form {
 				// tick command
 				tickCommand = new tickC(world); 
 				Button tickCommandButton = new Button("Player Ship missile hits Non Player Ship ");
-				tickCommandButton.getAllStyles().setBgTransparency(1);
+				tickCommandButton.getAllStyles().setBgTransparency(80);
+				tickCommandButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 				tickCommandButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 				tickCommandButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 				tickCommandButton.setCommand(tickCommand);
@@ -295,7 +320,8 @@ public class Game extends Form {
 				
 				quitGameCommand = new quitGameC(world); 
 				Button quitGameButton = new Button("Player Ship missile hits Non Player Ship ");
-				quitGameButton.getAllStyles().setBgTransparency(1);
+				quitGameButton.getAllStyles().setBgTransparency(80);
+				quitGameButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 				quitGameButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 				quitGameButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 				quitGameButton.setCommand(quitGameCommand);
@@ -305,7 +331,8 @@ public class Game extends Form {
 				printMapCommand = new PrintMapC(world); 
 				
 				Button printMapButton = new Button("Print Map command ");
-				printMapButton.getAllStyles().setBgTransparency(1);
+				printMapButton.getAllStyles().setBgTransparency(80);
+				printMapButton.getAllStyles().setBgColor(ColorUtil.BLACK);
 				printMapButton.getAllStyles().setFgColor(ColorUtil.WHITE);
 				printMapButton.getAllStyles().setBorder(Border.createLineBorder(2,ColorUtil.CYAN));
 				printMapButton.setCommand(printMapCommand);

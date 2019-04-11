@@ -18,6 +18,9 @@ public class MissileLauncher extends MovableObject{
 		String s = "";
 		s += super.toString();
 		s += "Non Steerable Launcher: ";
+		s += " Missile Launcher Direction: ";
+		s+= super.getHeading();
+				
 		return s;
 	}
 }

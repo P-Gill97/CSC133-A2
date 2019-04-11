@@ -30,7 +30,7 @@ public class GameObjectCollection implements ICollection {
 		
 		return new VectorIterator();
 	}
-	private class VectorIterator implements IItterator{
+	 class VectorIterator implements IItterator{
 		private int index; 
 		
 		

@@ -36,7 +36,7 @@ public class SteerableLauncher  extends MissileLauncher implements ISteerable{
 	}
 	public String toString() {
 		String s = "";
-		s += "/n Steerable Launcher"; 
+		s += " Steerable Launcher"; 
 		s += super.toString();
 		return s;
 	}

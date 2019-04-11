@@ -19,8 +19,7 @@ import com.mycompany.a2.Interfaces.IItterator;
 
 public class GameWorld extends Observable implements IGameWorld {
 
-	// Vector<GameObject> objectCollection = new Vector<GameObject>();
-	private Vector objectCollection = new Vector();
+	
 	private int ticks;
 	private int score;
 	private GameObjectCollection GameObjCollection;
@@ -41,31 +40,29 @@ public class GameWorld extends Observable implements IGameWorld {
 	public void sound() {
 		this.sound = !this.getSound();
 	}
-	public boolean decrementPSLife() {
-		boolean exit = false;
-		int life;
+	public void decrementPSLife() {
+		
+		
 		IItterator it = GameObjCollection.getIterator();
 		while (it.hasNext()) {
 			GameObject obj = (GameObject) it.getNext();
 			if (obj instanceof PShip) {
-				life = ((PShip) obj).getLife();
-				if (life > 1) {
-					((PShip) obj).setLife(life - 1);
+				
+				if (lives >= 1) {
+					lives --; 
 					System.out.println("lives decremented by 1");
-					return true;
+					
 				} else {
-					((PShip) obj).setLife(life - 1);
-					exit = true;
+					lives --;
+					System.out.println("Out Of lives. Exiting game");
+					quitGame();
 				}
 
 			}
 
 		}
-		if (exit == true) {
-			endGame();
-			System.out.println("END GAME. Thanks for playing");
-		}
-		return false;
+		
+		
 		/*
 		 * if (PlayerShipExists()) { for (GameObject obj : objectCollection) { if (obj
 		 * instanceof PShip) { life = ((PShip) obj).getLife(); if (life > 1) { ((PShip)
@@ -615,7 +612,6 @@ public class GameWorld extends Observable implements IGameWorld {
 
 	public void crashPStoAs() {
 		if (PlayerShipExists() && asteroidExists()) {
-			deletePS();
 			decrementPSLife();
 			deleteAsteroid();
 			System.out.println("crash PS to AS . removed ps and asteroid ");

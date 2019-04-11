@@ -28,6 +28,7 @@ public class Missile extends MovableObject{
 		s+= " Missle : ";
 		s+= "Fuel=" + this.fuel;
 		s+= super.toString();
+		
 		return s; 
 	}
 }

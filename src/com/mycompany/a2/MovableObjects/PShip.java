@@ -84,7 +84,7 @@ public class PShip extends Ship implements ISteerable {
 	
 	public String toString() {
 		String s = "";
-		s += " Player Ship "; 
+		s += "Player Ship "; 
 		s += super.toString();
 		s += " Lives = "+ this.getLife();
 		return s;

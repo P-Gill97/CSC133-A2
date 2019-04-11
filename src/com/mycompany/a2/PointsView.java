@@ -45,22 +45,22 @@ public class PointsView extends Container implements Observer{
 		
 		Label pointText = new Label(" Points: ");
 		Label numberOfMissileText = new Label(" Number of Missiles: ");
-		Label soundText = new Label(" Sound: ");
+		Label soundText = new Label("Sound:");
 		Label  timeText= new Label(" time: ");
 		Label  numOfLivesText= new Label(" Number of lives: ");
 		
-		 numberOfMissileL =new Label("INITVALUE");
-		 pointsL = new Label("INITVALUE");
-		 soundL = new Label("INITVALUE");
-		 timeL = new Label("INITVALUE");
-		 numOfLivesL = new Label("INITVALUE");
+		 numberOfMissileL =new Label("-");
+		 pointsL = new Label("-");
+		 soundL = new Label("-");
+		 timeL = new Label("-");
+		 numOfLivesL = new Label("-");
 		 
 		 
-		pointText.getAllStyles().setBgTransparency(1);
-		numberOfMissileText.getAllStyles().setBgTransparency(1);
-		soundText.getAllStyles().setBgTransparency(1);
-		timeText.getAllStyles().setBgTransparency(1);
-		numOfLivesText.getAllStyles().setBgTransparency(1);
+		pointText.getAllStyles().setBgTransparency(50);
+		numberOfMissileText.getAllStyles().setBgTransparency(50);
+		soundText.getAllStyles().setBgTransparency(50);
+		timeText.getAllStyles().setBgTransparency(50);
+		numOfLivesText.getAllStyles().setBgTransparency(50);
 		
 		pointText.getAllStyles().setPadding(LEFT,1);
 		numberOfMissileText.getAllStyles().setPadding(LEFT,1);
